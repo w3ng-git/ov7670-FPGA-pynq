@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="camera_capture_axis_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="camera_capture_axis_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4,348,122.762 ns"></ZoomStartTime>
+      <ZoomEndTime time="4,350,593.892 ns"></ZoomEndTime>
+      <Cursor1Time time="5,435,585.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="373"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/camera_capture_axis_tb/axi_clk" type="logic">
+      <obj_property name="ElementShortName">axi_clk</obj_property>
+      <obj_property name="ObjectShortName">axi_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/xclk" type="logic">
+      <obj_property name="ElementShortName">xclk</obj_property>
+      <obj_property name="ObjectShortName">xclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/aresetn" type="logic">
+      <obj_property name="ElementShortName">aresetn</obj_property>
+      <obj_property name="ObjectShortName">aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/camera_pclk" type="logic">
+      <obj_property name="ElementShortName">camera_pclk</obj_property>
+      <obj_property name="ObjectShortName">camera_pclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/camera_href" type="logic">
+      <obj_property name="ElementShortName">camera_href</obj_property>
+      <obj_property name="ObjectShortName">camera_href</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/camera_vsync" type="logic">
+      <obj_property name="ElementShortName">camera_vsync</obj_property>
+      <obj_property name="ObjectShortName">camera_vsync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/camera_data" type="array">
+      <obj_property name="ElementShortName">camera_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">camera_data[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/is_last_pixel" type="logic">
+      <obj_property name="ElementShortName">is_last_pixel</obj_property>
+      <obj_property name="ObjectShortName">is_last_pixel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/m_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/pixel_valid" type="logic">
+      <obj_property name="ElementShortName">pixel_valid</obj_property>
+      <obj_property name="ObjectShortName">pixel_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/byte_toggle" type="logic">
+      <obj_property name="ElementShortName">byte_toggle</obj_property>
+      <obj_property name="ObjectShortName">byte_toggle</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/m_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/cam_data_high" type="array">
+      <obj_property name="ElementShortName">cam_data_high[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cam_data_high[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/cam_data_low" type="array">
+      <obj_property name="ElementShortName">cam_data_low[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cam_data_low[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/m_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/m_axis_tuser" type="logic">
+      <obj_property name="ElementShortName">m_axis_tuser</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/m_axis_tready" type="logic">
+      <obj_property name="ElementShortName">m_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/uut/camera_data" type="array">
+      <obj_property name="ElementShortName">camera_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">camera_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/data_count" type="array">
+      <obj_property name="ElementShortName">data_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/tuser_count" type="array">
+      <obj_property name="ElementShortName">tuser_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tuser_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/tlast_count" type="array">
+      <obj_property name="ElementShortName">tlast_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/error_count" type="array">
+      <obj_property name="ElementShortName">error_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">error_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/frame_count" type="array">
+      <obj_property name="ElementShortName">frame_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">frame_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/CLK_PERIOD_AXI" type="array">
+      <obj_property name="ElementShortName">CLK_PERIOD_AXI[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD_AXI[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/camera_capture_axis_tb/CLK_PERIOD_XCLK" type="other">
+      <obj_property name="ElementShortName">CLK_PERIOD_XCLK</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD_XCLK</obj_property>
+   </wvobject>
+</wave_config>

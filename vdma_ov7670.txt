@@ -1,0 +1,51 @@
+from pynq import MMIO, allocate
+import time
+from typing import Tuple
+
+def vdma_setup_for_ov7670_rgba(
+        overlay,
+        vdma_base: int = 0x43000000,
+        width: int = 640,
+        height: int = 480,
+        bytes_per_pixel: int = 4,
+        frame_count: int = 1,
+        circular: bool = True,
+) -> Tuple["numpy.ndarray", MMIO]:
+    """
+    正确配置 VDMA S2MM 通道用于 RGBA8888 视频流的写入。
+    """
+
+    vdma = MMIO(vdma_base, 0x10000)
+    fb = allocate(shape=(height, width), dtype="uint32")  # 32-bit RGBA
+
+    stride     = width * bytes_per_pixel                   # 2560
+    phys_addr  = fb.physical_address
+
+    rw = vdma.read
+    ww = vdma.write
+
+    # 1. Reset S2MM
+    ww(0x30, 0x00000004)       # S2MM_DMACR soft reset
+    while rw(0x34) & 0x00000004:
+        pass                   # wait reset complete
+    ww(0x30, 0x00000001)
+    # 2. Set Frame Buffer Start Address
+    ww(0xAC, phys_addr)        # S2MM_START_ADDR
+
+    # 3. Set Stride, HSIZE, VSIZE (S2MM)
+    ww(0xA8, stride)           # S2MM_FRMDLY_STRIDE
+    ww(0xA4, stride)           # S2MM_HSIZE in bytes
+    ww(0xA0, height)           # S2MM_VSIZE in lines
+
+    # 4. Start VDMA
+#     dmacr = 0
+#     if circular:
+#         dmacr |= (1 << 16)     # Circular mode
+#     if frame_count == 3:
+#         dmacr |= (3 << 17)     # Frame delay
+#     dmacr |= 0x1               # RS=1, start DMA
+#     ww(0x30, dmacr)
+
+    time.sleep(0.001)          # Give it time to settle
+
+    return fb, vdma

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="w3_sccb_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="w3_sccb_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,042.385000 us"></ZoomStartTime>
+      <ZoomEndTime time="1,099.085001 us"></ZoomEndTime>
+      <Cursor1Time time="1,089.635000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="413"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="58" />
+   <wvobject fp_name="/w3_sccb_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/rst_n" type="logic">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_awaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_awaddr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awaddr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_awprot" type="array">
+      <obj_property name="ElementShortName">s_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_awready" type="logic">
+      <obj_property name="ElementShortName">s_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_wdata" type="array">
+      <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_wstrb" type="array">
+      <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_wready" type="logic">
+      <obj_property name="ElementShortName">s_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_bresp" type="array">
+      <obj_property name="ElementShortName">s_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_bready" type="logic">
+      <obj_property name="ElementShortName">s_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_araddr" type="array">
+      <obj_property name="ElementShortName">s_axi_araddr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_araddr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_arprot" type="array">
+      <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_arready" type="logic">
+      <obj_property name="ElementShortName">s_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_rdata" type="array">
+      <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_rresp" type="array">
+      <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/s_axi_rready" type="logic">
+      <obj_property name="ElementShortName">s_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/scl_o" type="logic">
+      <obj_property name="ElementShortName">scl_o</obj_property>
+      <obj_property name="ObjectShortName">scl_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/scl_i" type="logic">
+      <obj_property name="ElementShortName">scl_i</obj_property>
+      <obj_property name="ObjectShortName">scl_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/sda_i" type="logic">
+      <obj_property name="ElementShortName">sda_i</obj_property>
+      <obj_property name="ObjectShortName">sda_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/scl_t" type="logic">
+      <obj_property name="ElementShortName">scl_t</obj_property>
+      <obj_property name="ObjectShortName">scl_t</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/sda_o" type="logic">
+      <obj_property name="ElementShortName">sda_o</obj_property>
+      <obj_property name="ObjectShortName">sda_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/sda_t" type="logic">
+      <obj_property name="ElementShortName">sda_t</obj_property>
+      <obj_property name="ObjectShortName">sda_t</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/sccb_irq" type="logic">
+      <obj_property name="ElementShortName">sccb_irq</obj_property>
+      <obj_property name="ObjectShortName">sccb_irq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/scl" type="logic">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/sda" type="logic">
+      <obj_property name="ElementShortName">sda</obj_property>
+      <obj_property name="ObjectShortName">sda</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/w3_sccb_v1_0_inst/w3_sccb_v1_0_S00_AXI_inst/sccb_controller_inst/status_reg" type="array">
+      <obj_property name="ElementShortName">status_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">status_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/w3_sccb_v1_0_inst/w3_sccb_v1_0_S00_AXI_inst/sccb_controller_inst/state" type="array">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/prev_mon_scl" type="logic">
+      <obj_property name="ElementShortName">prev_mon_scl</obj_property>
+      <obj_property name="ObjectShortName">prev_mon_scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/prev_mon_sda" type="logic">
+      <obj_property name="ElementShortName">prev_mon_sda</obj_property>
+      <obj_property name="ObjectShortName">prev_mon_sda</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_START_BIT" type="array">
+      <obj_property name="ElementShortName">CTRL_START_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_START_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_READ_BIT" type="array">
+      <obj_property name="ElementShortName">CTRL_READ_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_READ_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_STOP_BIT" type="array">
+      <obj_property name="ElementShortName">CTRL_STOP_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_STOP_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_ACK_BIT" type="array">
+      <obj_property name="ElementShortName">CTRL_ACK_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_ACK_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_IRQ_EN_BIT" type="array">
+      <obj_property name="ElementShortName">CTRL_IRQ_EN_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_IRQ_EN_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/STAT_BUSY_BIT" type="array">
+      <obj_property name="ElementShortName">STAT_BUSY_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STAT_BUSY_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/STAT_TRANS_DONE_BIT" type="array">
+      <obj_property name="ElementShortName">STAT_TRANS_DONE_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STAT_TRANS_DONE_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/STAT_ACK_ERR_BIT" type="array">
+      <obj_property name="ElementShortName">STAT_ACK_ERR_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STAT_ACK_ERR_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/STAT_ARB_LOST_BIT" type="array">
+      <obj_property name="ElementShortName">STAT_ARB_LOST_BIT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STAT_ARB_LOST_BIT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/CTRL_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">CTRL_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">CTRL_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/STATUS_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">STATUS_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">STATUS_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/TX_DATA_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">TX_DATA_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_DATA_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/RX_DATA_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">RX_DATA_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_DATA_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/ADDR_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">ADDR_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/SLAVE_REG_ADDR" type="array">
+      <obj_property name="ElementShortName">SLAVE_REG_ADDR[2:0]</obj_property>
+      <obj_property name="ObjectShortName">SLAVE_REG_ADDR[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/OV7670_ADDR" type="array">
+      <obj_property name="ElementShortName">OV7670_ADDR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OV7670_ADDR[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_COM7" type="array">
+      <obj_property name="ElementShortName">REG_COM7[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_COM7[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_COM10" type="array">
+      <obj_property name="ElementShortName">REG_COM10[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_COM10[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_PID" type="array">
+      <obj_property name="ElementShortName">REG_PID[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_PID[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_VER" type="array">
+      <obj_property name="ElementShortName">REG_VER[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_VER[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_CLKRC" type="array">
+      <obj_property name="ElementShortName">REG_CLKRC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_CLKRC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_RGB444" type="array">
+      <obj_property name="ElementShortName">REG_RGB444[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_RGB444[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/w3_sccb_tb/REG_COM1" type="array">
+      <obj_property name="ElementShortName">REG_COM1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">REG_COM1[7:0]</obj_property>
+   </wvobject>
+</wave_config>

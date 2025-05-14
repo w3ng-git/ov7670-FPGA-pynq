@@ -1,0 +1,243 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from pynq import DefaultIP
+import time
+
+class SCCBDriver(DefaultIP):
+    """
+    SCCB驱动类，用于通过AXI接口控制SCCB控制器。
+    
+    属性:
+        CTRL_REG_OFFSET: 控制寄存器偏移量
+        STATUS_REG_OFFSET: 状态寄存器偏移量
+        TX_DATA_REG_OFFSET: 发送数据寄存器偏移量
+        RX_DATA_REG_OFFSET: 接收数据寄存器偏移量
+        ADDR_REG_OFFSET: 设备地址寄存器偏移量
+        REG_ADDR_OFFSET: 从机寄存器地址偏移量
+    """
+    
+    # 寄存器偏移定义（与硬件设计匹配）
+    CTRL_REG_OFFSET = 0x00       # 控制寄存器
+    STATUS_REG_OFFSET = 0x04     # 状态寄存器
+    TX_DATA_REG_OFFSET = 0x08    # 发送数据寄存器
+    RX_DATA_REG_OFFSET = 0x0C    # 接收数据寄存器
+    ADDR_REG_OFFSET = 0x10       # 设备地址寄存器
+    REG_ADDR_OFFSET = 0x14       # 从机寄存器地址偏移
+    
+    # 控制寄存器位定义
+    CTRL_START_BIT = 0           # 写操作启动位
+    CTRL_READ_BIT = 1            # 读操作启动位
+    CTRL_STOP_BIT = 2            # 停止位
+    CTRL_ACK_BIT = 3             # 应答控制位
+    CTRL_IRQ_EN_BIT = 4          # 中断使能位
+    
+    # 状态寄存器位定义
+    STAT_BUSY_BIT = 0            # 忙状态位
+    # STAT_TRANS_DONE_BIT = 1      # 传输完成位
+    STAT_ACK_ERR_BIT = 2         # 应答错误位
+    STAT_ARB_LOST_BIT = 3        # 仲裁丢失位
+    
+    def __init__(self, description, base_address=0x40001000):
+        """
+        初始化SCCB驱动。
+        
+        参数:
+            description: IP核描述（PYNQ要求）或自定义描述字符串
+            base_address: AXI基地址
+        """
+        # 判断description是字典还是字符串
+        if isinstance(description, dict):
+            # 如果是字典，则是通过DefaultIP自动绑定
+            super().__init__(description=description)
+        else:
+            # 如果是字符串，则是手动创建
+            from pynq import MMIO
+            self.description = description
+            self.mmio = MMIO(base_address, 0x1000)
+            
+        self.base_address = base_address
+        
+    def write_register(self, offset, value):
+        """
+        写AXI寄存器。
+        
+        参数:
+            offset: 寄存器偏移
+            value: 要写入的值
+        """
+        if hasattr(self, 'write'):
+            self.write(offset, value)
+        else:
+            self.mmio.write(offset, value)
+        
+    def read_register(self, offset):
+        """
+        读AXI寄存器。
+        
+        参数:
+            offset: 寄存器偏移
+            
+        返回:
+            读取的值
+        """
+        if hasattr(self, 'read'):
+            return self.read(offset)
+        else:
+            return self.mmio.read(offset)
+    
+    def wait_for_done(self, timeout=0.2):
+        """
+        等待传输完成。
+        
+        参数:
+            timeout: 超时时间（秒）
+            
+        返回:
+            成功完成返回True，超时返回False
+        """
+        start_time = time.time()
+        while (time.time() - start_time) < timeout:
+            status = self.read_register(self.STATUS_REG_OFFSET)
+            # 检查DONE位
+            if status & (1 << self.STAT_BUSY_BIT):
+                return True
+            time.sleep(0.001)  # 减小CPU负载
+        return False
+    
+    def wait_for_not_busy(self, timeout=0.1):
+        """
+        等待非忙状态。
+        
+        参数:
+            timeout: 超时时间（秒）
+            
+        返回:
+            成功完成返回True，超时返回False
+        """
+        start_time = time.time()
+        while (time.time() - start_time) < timeout:
+            status = self.read_register(self.STATUS_REG_OFFSET)
+            # 检查BUSY位
+            if not (status & (1 << self.STAT_BUSY_BIT)):
+                return True
+            time.sleep(0.001)  # 减小CPU负载
+        return False
+    
+    def set_device_address(self, device_addr):
+        """
+        设置SCCB设备地址。
+        
+        参数:
+            device_addr: 7位设备地址
+        """
+        self.write_register(self.ADDR_REG_OFFSET, device_addr & 0x7F)
+    
+    def set_register_address(self, reg_addr):
+        """
+        设置从机寄存器地址。
+        
+        参数:
+            reg_addr: 从机寄存器地址
+        """
+        self.write_register(self.REG_ADDR_OFFSET, reg_addr & 0xFF)
+    
+    def write_byte(self, device_addr, reg_addr, data):
+        """
+        写一个字节到SCCB设备。
+        
+        参数:
+            device_addr: 7位设备地址
+            reg_addr: 从机寄存器地址
+            data: 要写入的数据
+            
+        返回:
+            成功返回True，失败返回False
+        """
+        # 设置设备地址和寄存器地址
+        self.set_device_address(device_addr)
+        self.set_register_address(reg_addr)
+        
+        # 设置要发送的数据
+        self.write_register(self.TX_DATA_REG_OFFSET, data & 0xFF)
+        
+        # 设置控制寄存器启动传输，并设置STOP位
+        ctrl_value = (1 << self.CTRL_START_BIT) | (1 << self.CTRL_STOP_BIT)
+        self.write_register(self.CTRL_REG_OFFSET, ctrl_value)
+        
+        # 等待传输完成
+        return self.wait_for_done()
+    
+    def read_byte(self, device_addr, reg_addr):
+        """
+        从SCCB设备读取一个字节。
+        
+        参数:
+            device_addr: 7位设备地址
+            reg_addr: 从机寄存器地址
+            
+        返回:
+            成功返回读取的数据，失败返回None
+        """
+        # 设置设备地址和寄存器地址
+        self.set_device_address(device_addr)
+        self.set_register_address(reg_addr)
+        
+        # 设置控制寄存器启动读传输，并设置STOP位
+        ctrl_value = (1 << self.CTRL_READ_BIT) | (1 << self.CTRL_STOP_BIT)
+        self.write_register(self.CTRL_REG_OFFSET, ctrl_value)
+        
+        # 等待传输完成
+        time.sleep(0.01)
+        
+        # 读取接收到的数据
+        data = self.read_register(self.RX_DATA_REG_OFFSET)
+        print(f"[driver]: read: {data}")
+        return data & 0xFF
+    
+    def write_data(self, device_addr, reg_addr, data_bytes):
+        """
+        写多个字节到SCCB设备。
+        
+        参数:
+            device_addr: 7位设备地址
+            reg_addr: 起始寄存器地址
+            data_bytes: 要写入的数据字节列表
+            
+        返回:
+            成功返回True，失败返回False
+        """
+        # 对每个字节进行写操作
+        for i, data_byte in enumerate(data_bytes):
+            if not self.write_byte(device_addr, reg_addr + i, data_byte):
+                return False
+            time.sleep(0.01)  # 短暂延时，确保操作完成
+        return True
+    
+    def read_data(self, device_addr, reg_addr, length):
+        """
+        从SCCB设备读取多个字节。
+        
+        参数:
+            device_addr: 7位设备地址
+            reg_addr: 起始寄存器地址
+            length: 要读取的字节数
+            
+        返回:
+            成功返回读取的数据列表，失败返回空列表
+        """
+        result = []
+        for i in range(length):
+            data = self.read_byte(device_addr, reg_addr + i)
+            if data is None:
+                return []
+            result.append(data)
+            time.sleep(0.001)  # 短暂延时，确保操作完成
+        return result
+
+# PYNQ绑定函数
+def iic_driver_bind(description, **kwargs):
+    return IICDriver(description, **kwargs)
+
+# 将驱动类与VLNV绑定（修改为实际的IP核VLNV）
+iic_driver_bind.bindto = ['xilinx.com:user:w3_sccb:1.0', 'xilinx.com:user:w3ng_sccb:1.0'] 
